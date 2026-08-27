@@ -560,7 +560,7 @@
       bottom: 0;
       width: 100%;
       height: 100%;
-      background-image: url('https://res.cloudinary.com/dapveboee/image/upload/v1787569992/ChatGPT_Image_Aug_22_2026_04_25_50_PM_tpbik8.png');
+      background-image: url('https://res.cloudinary.com/fmwapqrc/image/upload/v1787815207/Gemini_Generated_Image_3g2oc3g2oc3g2oc3-clean.png');
       background-size: cover;
       background-position: 86% top;
       background-repeat: no-repeat;
@@ -2435,8 +2435,8 @@
       width: 100%;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: clamp(40px, 5.5vw, 90px);
+      grid-template-columns: 1fr 1.08fr;
+      gap: clamp(30px, 4vw, 60px);
       align-items: center;
       position: relative;
       z-index: 2;
@@ -2551,108 +2551,65 @@
       letter-spacing: -0.01em;
     }
 
-    /* Right Column: 3D Interactive Stacked Photo Deck */
-    .beats-stacked-visual-col {
+    /* Right Column: Single Premium Showcase Photo Card */
+    .beats-single-visual-col {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: clamp(20px, 3vh, 40px) 10px;
+      padding: clamp(10px, 2vh, 30px) 0;
+      width: 100%;
     }
 
-    .stacked-photos-deck {
+    .beats-showcase-card {
       position: relative;
       width: 100%;
-      max-width: 600px;
-      aspect-ratio: 4 / 3.2;
-      min-height: 420px;
+      max-width: 720px;
+      aspect-ratio: 16 / 10.5;
+      border-radius: 24px;
+      overflow: hidden;
+      background: radial-gradient(circle at center, #102747 0%, #061224 100%);
+      padding: 6px;
+      border: 2.5px solid var(--gold-border);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 35px rgba(247, 202, 104, 0.2);
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1),
+        box-shadow 0.5s ease,
+        border-color 0.4s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      user-select: none;
-      perspective: 1200px;
     }
 
-    .photo-card-frame {
-      position: absolute;
-      width: clamp(340px, 38vw, 540px);
-      aspect-ratio: 4 / 3;
-      border-radius: 24px;
+    .beats-showcase-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      border-color: var(--gold-primary);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), 0 0 45px var(--gold-glow);
+    }
+
+    .beats-showcase-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 18px;
       overflow: hidden;
-      background: var(--bg-card);
-      padding: 9px;
-      border: 2.5px solid var(--gold-border);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3), 0 0 25px rgba(247, 202, 104, 0.18);
-      transition: transform 0.65s cubic-bezier(0.2, 0.9, 0.3, 1.15),
-        opacity 0.5s ease,
-        box-shadow 0.6s ease,
-        border-color 0.4s ease;
-      will-change: transform, opacity, box-shadow;
-      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .photo-card-frame img {
+    .beats-showcase-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 16px;
+      object-position: center 20%;
       display: block;
-      pointer-events: none;
+      border-radius: 18px;
+      transition: transform 0.6s ease;
     }
 
-    .photo-card-tag {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      background: rgba(18, 8, 28, 0.85);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(247, 202, 104, 0.45);
-      color: #FFF0B8;
-      font-family: var(--font-display);
-      font-size: clamp(11.5px, 0.9vw, 13px);
-      font-weight: 750;
-      letter-spacing: 0.06em;
-      padding: 6px 16px;
-      border-radius: 9999px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-      pointer-events: none;
-    }
-
-    /* 3 Discrete Stack Positions with Organic Angles */
-    .photo-card-frame.pos-top {
-      z-index: 10;
-      transform: translate3d(0, 0, 30px) rotate(1.5deg) scale(1);
-      opacity: 1;
-      border-color: var(--gold-primary);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 35px var(--gold-glow);
-    }
-
-    .photo-card-frame.pos-mid {
-      z-index: 6;
-      transform: translate3d(-34px, -18px, 10px) rotate(-5.5deg) scale(0.95);
-      opacity: 0.92;
-    }
-
-    .photo-card-frame.pos-bot {
-      z-index: 2;
-      transform: translate3d(36px, 22px, -20px) rotate(7deg) scale(0.91);
-      opacity: 0.82;
-    }
-
-    /* Hover Fan-Out effect */
-    .stacked-photos-deck:hover .photo-card-frame.pos-top {
-      transform: translate3d(0, -28px, 40px) rotate(0deg) scale(1.03);
-    }
-
-    .stacked-photos-deck:hover .photo-card-frame.pos-mid {
-      transform: translate3d(-60px, 15px, 15px) rotate(-9.5deg) scale(0.97);
-    }
-
-    .stacked-photos-deck:hover .photo-card-frame.pos-bot {
-      transform: translate3d(60px, 28px, -10px) rotate(10deg) scale(0.95);
+    .beats-showcase-card:hover .beats-showcase-frame img {
+      transform: scale(1.02);
     }
 
     /* Deck Controls & Dots */
@@ -3322,7 +3279,6 @@
     .events-visual-half {
       position: relative;
       width: 100%;
-      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3330,25 +3286,39 @@
 
     .events-image-wrapper {
       position: relative;
-      width: 100%;
-      border-radius: 28px;
+      width: fit-content;
+      max-width: 100%;
+      height: auto;
+      border-radius: 26px;
       overflow: hidden;
-      aspect-ratio: 4 / 5;
-      max-height: 680px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 35px rgba(56, 189, 248, 0.2);
-      border: 2.5px solid rgba(247, 202, 104, 0.6);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 35px rgba(247, 202, 104, 0.25);
+      border: 2.5px solid rgba(247, 202, 104, 0.7);
+      cursor: pointer;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    .events-image-wrapper:hover {
+      transform: translateY(-6px) scale(1.015);
+      border-color: var(--gold-primary);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 45px var(--gold-glow);
+    }
+
+    .events-image-wrapper:hover .photo-bento-zoom {
+      opacity: 1 !important;
     }
 
     .events-image-wrapper img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 520px;
+      height: auto;
       display: block;
+      border-radius: 23px;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .events-image-wrapper:hover img {
-      transform: scale(1.04);
+      transform: scale(1.02);
     }
 
     .events-poster-chip {
@@ -3693,250 +3663,385 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* Part 2: Unified Dual Pillars (Who Should Attend + Why Bhakti Beats) */
-    .event-unified-experience {
+    /* ==========================================================================
+       SPONSORSHIP CATEGORIES & INVITATION SECTION
+       ========================================================================== */
+    .sponsorship-experience-wrapper {
       width: 100%;
       border-top: 1px solid rgba(147, 197, 253, 0.25) !important;
-      padding-top: clamp(50px, 7vh, 85px);
-    }
-
-    .event-dual-pillars-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(40px, 5.5vw, 80px);
-      align-items: start;
-      width: 100%;
-      position: relative;
-    }
-
-    /* Left Pillar: Who Should Attend */
-    .pillar-attend-col {
+      padding-top: clamp(45px, 6vh, 75px);
       display: flex;
       flex-direction: column;
-      gap: clamp(20px, 2.5vh, 28px);
-      padding-right: clamp(10px, 2vw, 30px);
-      border-right: 1px solid rgba(147, 197, 253, 0.25) !important;
+      gap: clamp(36px, 5vh, 60px);
     }
 
-    /* Right Pillar: Why Bhakti Beats */
-    .pillar-why-col {
+    .sponsorship-header-center {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: clamp(20px, 2.5vh, 28px);
-      padding-left: clamp(10px, 2vw, 30px);
-    }
-
-    .pillar-header-group {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .pillar-header-pill {
-      display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 18px;
-      background: rgba(30, 58, 138, 0.45) !important;
-      border: 1.5px solid rgba(147, 197, 253, 0.45) !important;
-      border-radius: 9999px;
-      width: fit-content;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25), 0 0 15px rgba(56, 189, 248, 0.25) !important;
+      gap: 12px;
     }
 
-    .pillar-header-pill-text {
+    .sponsorship-tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 1.8vw, 24px);
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .sponsorship-tier-card {
+      position: relative;
+      background: rgba(13, 31, 56, 0.75) !important;
+      border: 1.5px solid rgba(147, 197, 253, 0.25) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border-radius: 24px;
+      padding: clamp(26px, 2.5vw, 34px) clamp(18px, 1.8vw, 24px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .sponsorship-tier-card:hover {
+      transform: translateY(-8px);
+      border-color: #F7CA68 !important;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 0 25px rgba(247, 202, 104, 0.25) !important;
+    }
+
+    /* Featured Tier (Radha Seva) */
+    .sponsorship-tier-card.featured-tier {
+      background: linear-gradient(180deg, rgba(30, 58, 138, 0.65) 0%, rgba(13, 31, 56, 0.9) 100%) !important;
+      border: 2px solid rgba(247, 202, 104, 0.7) !important;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4), 0 0 24px rgba(247, 202, 104, 0.2) !important;
+      transform: scale(1.02);
+    }
+
+    .sponsorship-tier-card.featured-tier:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: #F7CA68 !important;
+    }
+
+    /* VIP Main Sponsor Tier (Maha Seva) */
+    .sponsorship-tier-card.vip-tier {
+      background: linear-gradient(180deg, rgba(88, 28, 135, 0.55) 0%, rgba(13, 31, 56, 0.95) 100%) !important;
+      border: 2.5px solid #F7CA68 !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 35px rgba(247, 202, 104, 0.35) !important;
+      transform: scale(1.03);
+    }
+
+    .sponsorship-tier-card.vip-tier:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.6), 0 0 45px rgba(247, 202, 104, 0.5) !important;
+    }
+
+    .tier-badge-top {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #0F172A;
       font-family: var(--font-display);
-      font-size: clamp(10.5px, 0.8vw, 12.5px);
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      color: #93C5FD !important;
+      font-size: 10.5px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      white-space: nowrap;
       text-transform: uppercase;
     }
 
-    .pillar-main-title {
-      font-family: var(--font-serif);
-      font-size: clamp(30px, 3.2vw, 46px);
-      font-weight: 850;
-      color: #FFFFFF !important;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+    .tier-badge-top.vip-badge {
+      background: linear-gradient(135deg, #FDE047 0%, #F59E0B 100%);
+      color: #020617;
+      font-weight: 900;
+      border: 1px solid #FFF;
     }
 
-    .pillar-main-title .gold-span {
-      color: #F7CA68 !important;
-      background: none !important;
-      -webkit-text-fill-color: initial !important;
-      display: inline !important;
-    }
-
-    /* Left Side: 6 Personas Grid */
-    .pillar-personas-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: clamp(16px, 2vh, 22px) clamp(12px, 1.5vw, 20px);
-      width: 100%;
-    }
-
-    .pillar-persona-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      transition: transform 0.3s ease;
-    }
-
-    .pillar-persona-item:hover {
-      transform: translateX(4px);
-    }
-
-    .pillar-persona-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(30, 58, 138, 0.45) !important;
-      border: 1.5px solid rgba(147, 197, 253, 0.4) !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
-      flex-shrink: 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .pillar-persona-item:hover .pillar-persona-icon {
-      transform: scale(1.12) rotate(6deg);
-      border-color: #F7CA68 !important;
-      box-shadow: 0 0 16px rgba(247, 202, 104, 0.4) !important;
-    }
-
-    .pillar-persona-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .pillar-persona-title {
-      font-family: var(--font-display);
-      font-size: clamp(14.5px, 1.05vw, 16.5px);
-      font-weight: 800;
-      color: #FFFFFF !important;
-      letter-spacing: -0.01em;
-      transition: color 0.3s ease;
-    }
-
-    .pillar-persona-item:hover .pillar-persona-title {
-      color: #F7CA68 !important;
-    }
-
-    .pillar-persona-desc {
-      font-size: clamp(12.5px, 0.88vw, 14px);
-      line-height: 1.45;
-      color: #94A3B8 !important;
-    }
-
-    /* Left Side: Golden Quote Box */
-    .pillar-quote-box {
-      border-top: 1px solid rgba(147, 197, 253, 0.25) !important;
-      padding-top: 18px;
+    .tier-header-content {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 6px;
+      margin-bottom: 20px;
     }
 
-    .pillar-quote-text {
-      font-family: var(--font-serif);
-      font-size: clamp(18px, 1.6vw, 24px);
+    .tier-category-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .tier-title {
+      font-family: var(--font-display);
+      font-size: clamp(16px, 1.25vw, 19px);
       font-weight: 850;
-      line-height: 1.35;
-      color: #F1F5F9 !important;
-      margin: 0;
-      font-style: italic;
+      color: #FFFFFF !important;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.2;
     }
 
-    .pillar-quote-text .gold-span {
+    .tier-price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin: 6px 0 10px;
+    }
+
+    .tier-price-val {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 2vw, 30px);
+      font-weight: 900;
       color: #F7CA68 !important;
-      background: none !important;
-      -webkit-text-fill-color: initial !important;
-      display: inline !important;
-      font-style: normal;
+      text-shadow: 0 0 12px rgba(247, 202, 104, 0.3);
+      line-height: 1;
     }
 
-    /* Right Side: 5 Reasons List */
-    .pillar-reasons-list {
+    .tier-passes-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(247, 202, 104, 0.15);
+      border: 1px solid rgba(247, 202, 104, 0.4);
+      border-radius: 8px;
+      color: #FDE047;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 750;
+      width: fit-content;
+    }
+
+    .tier-perks-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px 0;
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .tier-perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: #E2E8F0 !important;
+    }
+
+    .tier-perk-icon {
+      color: #F7CA68;
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 14px;
+    }
+
+    .tier-action-btn {
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-align: center;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      background: rgba(30, 58, 138, 0.6);
+      border: 1.5px solid rgba(147, 197, 253, 0.4);
+      color: #FFFFFF !important;
+    }
+
+    .tier-action-btn:hover {
+      background: linear-gradient(135deg, #EA580C 0%, #D97706 100%) !important;
+      border-color: transparent !important;
+      box-shadow: 0 8px 20px rgba(234, 88, 12, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .tier-action-btn.featured-btn {
+      background: linear-gradient(135deg, #EA580C 0%, #D97706 100%) !important;
+      border: none !important;
+      box-shadow: 0 8px 22px rgba(234, 88, 12, 0.4);
+    }
+
+    .tier-action-btn.featured-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(234, 88, 12, 0.6), 0 0 20px var(--gold-glow);
+    }
+
+    .tier-action-btn.vip-btn {
+      background: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%) !important;
+      color: #FFFFFF !important;
+      font-weight: 850;
+      border: none !important;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+    }
+
+    .tier-action-btn.vip-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 14px 32px rgba(245, 158, 11, 0.6), 0 0 25px var(--gold-glow);
+    }
+
+    /* Bottom Blessing Banner & Contact Row */
+    .sponsorship-bottom-card {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: clamp(24px, 3vw, 40px);
+      align-items: center;
+      background: radial-gradient(circle at 10% 50%, rgba(30, 58, 138, 0.7) 0%, rgba(13, 31, 56, 0.9) 100%) !important;
+      border: 1.5px solid rgba(247, 202, 104, 0.45) !important;
+      backdrop-filter: blur(18px) !important;
+      -webkit-backdrop-filter: blur(18px) !important;
+      border-radius: 24px;
+      padding: clamp(24px, 3vw, 36px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(247, 202, 104, 0.15);
+    }
+
+    .blessing-quote-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .blessing-quote-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #F7CA68;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .blessing-quote-text {
+      font-family: var(--font-serif);
+      font-size: clamp(17px, 1.3vw, 22px);
+      font-style: italic;
+      line-height: 1.5;
+      color: #FFFFFF !important;
+      margin: 0;
+    }
+
+    .blessing-contact-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      padding-left: clamp(16px, 2.5vw, 32px);
+      border-left: 1px solid rgba(147, 197, 253, 0.25);
+    }
+
+    .contact-person-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-lead-sub {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #93C5FD;
+    }
+
+    .contact-name-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 1.4vw, 22px);
+      font-weight: 850;
+      color: #FFFFFF;
+      margin: 0;
+    }
+
+    .contact-salutation {
+      color: #F7CA68;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .contact-actions-pair {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
       width: 100%;
     }
 
-    .pillar-reason-row {
-      display: flex;
-      align-items: flex-start;
-      gap: clamp(14px, 1.8vw, 22px);
-      padding: clamp(14px, 1.8vh, 20px) 0;
-      border-bottom: 1px solid rgba(147, 197, 253, 0.2) !important;
-      transition: all 0.3s ease;
-    }
-
-    .pillar-reason-row:first-child {
-      padding-top: 0;
-    }
-
-    .pillar-reason-row:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .pillar-reason-row:hover {
-      transform: translateX(6px);
-    }
-
-    .pillar-reason-num {
+    .contact-call-btn,
+    .contact-wa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 9999px;
       font-family: var(--font-display);
-      font-size: clamp(20px, 1.9vw, 28px);
-      font-weight: 900;
-      color: #F7CA68 !important;
-      line-height: 1;
-      opacity: 0.95;
-      flex-shrink: 0;
-      min-width: 36px;
-      transition: transform 0.3s ease;
-    }
-
-    .pillar-reason-row:hover .pillar-reason-num {
-      transform: scale(1.12);
-      color: #F97316 !important;
-      text-shadow: 0 0 14px rgba(249, 115, 22, 0.5) !important;
-    }
-
-    .pillar-reason-content {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .pillar-reason-title {
-      font-family: var(--font-serif);
-      font-size: clamp(17px, 1.35vw, 21px);
+      font-size: 13px;
       font-weight: 800;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      flex: 1;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .contact-call-btn {
+      background: rgba(30, 58, 138, 0.7);
+      border: 1.5px solid rgba(147, 197, 253, 0.4);
       color: #FFFFFF !important;
-      letter-spacing: -0.01em;
-      line-height: 1.25;
-      transition: color 0.3s ease;
     }
 
-    .pillar-reason-row:hover .pillar-reason-title {
-      color: #F7CA68 !important;
+    .contact-call-btn:hover {
+      background: rgba(30, 58, 138, 0.95);
+      border-color: #F7CA68;
+      transform: translateY(-2px);
     }
 
-    .pillar-reason-desc {
-      font-size: clamp(13px, 0.92vw, 14.5px);
-      line-height: 1.5;
-      color: #94A3B8 !important;
+    .contact-wa-btn {
+      background: #25D366;
+      border: 1.5px solid #25D366;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+    }
+
+    .contact-wa-btn:hover {
+      background: #1eb956;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
     }
 
     /* Responsive Adjustments for Events Split Layout */
+    @media (max-width: 1200px) {
+      .sponsorship-tiers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .sponsorship-tier-card.featured-tier,
+      .sponsorship-tier-card.vip-tier {
+        transform: none;
+      }
+      .sponsorship-tier-card.featured-tier:hover,
+      .sponsorship-tier-card.vip-tier:hover {
+        transform: translateY(-8px);
+      }
+    }
+
     @media (max-width: 1024px) {
       .events-split-grid {
         grid-template-columns: 1fr;
@@ -3947,35 +4052,35 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .event-dual-pillars-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .pillar-attend-col {
-        border-right: none;
-        border-bottom: 1px solid var(--gold-border-subtle);
-        padding-right: 0;
-        padding-bottom: 40px;
-      }
-
-      .pillar-why-col {
-        padding-left: 0;
-      }
-
       .events-image-wrapper {
-        max-height: 500px;
+        max-width: min(90vw, 440px);
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sponsorship-tiers-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .sponsorship-bottom-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .blessing-contact-box {
+        border-left: none;
+        border-top: 1px solid rgba(147, 197, 253, 0.25);
+        padding-left: 0;
+        padding-top: 20px;
+        width: 100%;
       }
     }
 
     @media (max-width: 640px) {
       .events-meta-list {
         grid-template-columns: 1fr;
-      }
-
-      .pillar-personas-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
       }
 
       .events-countdown-strip {
@@ -4249,17 +4354,15 @@
     .video-modal-dialog {
       position: relative;
       z-index: 2;
-      width: auto;
-      max-width: 94vw;
-      max-height: 90vh;
+      width: 90%;
+      max-width: 960px;
+      max-height: 88vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 16px;
       margin: 0 auto;
-      transform: translate3d(0, 0, 0);
-      will-change: transform;
     }
 
     /* Fixed Top-Right Close Button: Rock-Solid at Screen Corner */
@@ -4350,16 +4453,17 @@
       display: none !important;
     }
 
-    /* Video Player Frame Container: Perfectly Adaptive for Vertical Reels & Landscape Videos */
+    /* Video Player Frame Container: Centered leaving space on left/right for buttons */
     .video-modal-player-wrapper {
       position: relative;
-      max-width: 92vw;
-      max-height: 80vh;
+      width: min(78vw, 860px);
+      height: min(44vw, 490px);
+      max-height: 75vh;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #000000;
-      border-radius: 22px;
+      border-radius: 20px;
       overflow: hidden;
       border: 2px solid var(--gold-primary);
       box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85), 0 0 45px var(--gold-glow);
@@ -4410,25 +4514,21 @@
 
     .video-modal-player-wrapper video {
       display: block;
-      max-width: min(90vw, 1000px);
-      max-height: 78vh;
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      border-radius: 20px;
+      border-radius: 18px;
       background: #000000;
       position: relative;
       z-index: 2;
     }
 
     .video-modal-player-wrapper iframe {
-      width: min(90vw, 960px);
-      height: min(53vw, 540px);
-      max-height: 78vh;
+      width: 100%;
+      height: 100%;
       display: block;
       border: none;
-      aspect-ratio: 16 / 9;
-      border-radius: 20px;
+      border-radius: 18px;
       position: relative;
       z-index: 2;
     }
@@ -4675,14 +4775,15 @@
     .image-modal-dialog {
       position: relative;
       z-index: 2;
-      width: 90%;
+      width: 92%;
       max-width: 1100px;
-      max-height: 88vh;
+      max-height: 90vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
+      margin: 0 auto;
     }
 
     /* Fixed Top-Right Close Button: Rock-Solid at Screen Corner */
@@ -4756,22 +4857,28 @@
     .image-modal-preview-wrapper {
       position: relative;
       max-width: 100%;
-      max-height: 75vh;
+      max-height: 84vh;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 20px;
       overflow: hidden;
       border: 2px solid var(--gold-primary);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7), 0 0 45px var(--gold-glow);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 45px var(--gold-glow);
       background: #000000;
     }
 
     .image-modal-preview-wrapper img {
+      width: auto;
+      height: auto;
       max-width: 100%;
-      max-height: 75vh;
+      max-height: 84vh;
       object-fit: contain;
       display: block;
+      transition: opacity 0.1s ease;
+      will-change: opacity;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: high-quality;
     }
 
     .image-modal-counter {
@@ -4785,6 +4892,12 @@
       padding: 6px 18px;
       border-radius: 9999px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hide Navigation controls when opened in single-image mode */
+    .image-lightbox-modal.hide-nav .image-modal-nav,
+    .image-lightbox-modal.hide-nav .image-modal-counter {
+      display: none !important;
     }
 
     /* Responsive Queries for Bento Grid & Modal */
@@ -6103,48 +6216,20 @@
         box-sizing: border-box !important;
       }
 
-      .stacked-photos-deck {
+      .beats-single-visual-col {
         width: 100% !important;
-        max-width: min(86vw, 290px) !important;
-        height: 250px !important;
-        min-height: 240px !important;
+        max-width: 100% !important;
+        margin: 10px auto 15px auto !important;
+        padding: 5px 0 15px 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      .beats-showcase-card {
+        width: 100% !important;
+        max-width: min(92vw, 360px) !important;
+        aspect-ratio: 16 / 10.5 !important;
         margin: 0 auto !important;
-        overflow: visible !important;
-      }
-
-      .photo-card-frame {
-        width: 100% !important;
-        max-width: 270px !important;
-        aspect-ratio: 4 / 3 !important;
         border-radius: 18px !important;
-      }
-
-      .photo-card-frame.pos-top {
-        transform: translate3d(0, 0, 20px) rotate(1deg) scale(1) !important;
-      }
-
-      .photo-card-frame.pos-mid {
-        transform: translate3d(-18px, -10px, 10px) rotate(-4deg) scale(0.96) !important;
-      }
-
-      .photo-card-frame.pos-bot {
-        transform: translate3d(18px, 12px, -10px) rotate(5deg) scale(0.92) !important;
-      }
-
-      .stacked-photos-deck:hover .photo-card-frame.pos-top {
-        transform: translate3d(0, -12px, 30px) rotate(0deg) scale(1.02) !important;
-      }
-
-      .stacked-photos-deck:hover .photo-card-frame.pos-mid {
-        transform: translate3d(-24px, 6px, 15px) rotate(-6deg) scale(0.96) !important;
-      }
-
-      .stacked-photos-deck:hover .photo-card-frame.pos-bot {
-        transform: translate3d(24px, 14px, -5px) rotate(7deg) scale(0.92) !important;
-      }
-
-      .deck-controls-strip {
-        display: none !important;
       }
 
       .crescendo-header {
@@ -6435,6 +6520,30 @@
         grid-column: span 1;
         grid-row: span 1;
         min-height: 240px;
+      }
+
+      /* Full Screen Lightbox Modal on Mobile */
+      .image-modal-dialog {
+        width: 96vw !important;
+        max-width: 96vw !important;
+        max-height: 94vh !important;
+        gap: 6px !important;
+      }
+
+      .image-modal-preview-wrapper {
+        width: auto !important;
+        max-width: 96vw !important;
+        max-height: 88vh !important;
+        border-radius: 16px !important;
+      }
+
+      .image-modal-preview-wrapper img {
+        width: auto !important;
+        height: auto !important;
+        max-width: 96vw !important;
+        max-height: 88vh !important;
+        object-fit: contain !important;
+        image-rendering: -webkit-optimize-contrast !important;
       }
 
       /* Contact Section Mobile Center */
@@ -6731,14 +6840,14 @@
         </p>
 
         <!-- Hero Live Event Alert Pill -->
-        <a href="#events" class="hero-event-alert-pill" title="Upcoming Live Concert & Devotional Evening">
+        <a href="#events" class="hero-event-alert-pill" title="Upcoming Live Bhajan Bhakti Evening &amp; Sponsorship Invitation">
           <span class="hero-live-badge">
             <span class="live-dot-pulse" aria-hidden="true"></span>
             <span>NEXT LIVE EVENT</span>
           </span>
           <span class="hero-event-text">
-            <span class="desktop-text"><strong>Bhakti Beats</strong> • 27 Sep 2026, Dadar, Mumbai</span>
-            <span class="mobile-text"><strong>Bhakti Beats</strong> • 27 Sep, Mumbai</span>
+            <span class="desktop-text"><strong>Bhajan Bhakti Evening</strong> • 27 Sep 2026, Dadar, Mumbai</span>
+            <span class="mobile-text"><strong>Bhajan Bhakti Evening</strong> • 27 Sep, Mumbai</span>
           </span>
           <svg class="hero-event-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -6749,8 +6858,8 @@
 
         <!-- CTA Action Buttons -->
         <div class="hero-cta-group">
-          <!-- Button 1: Book Bhakti Beats Live (Direct Event Booking CTA) -->
-          <a href="#events" class="btn-primary-journey" title="Book Bhakti Beats Experience">
+          <!-- Button 1: Book Sponsorship & Passes (Direct Event Booking CTA) -->
+          <a href="#events" class="btn-primary-journey" title="Sponsorship Invitation &amp; Event Details">
             <span class="btn-icon">
               <!-- Ticket / Event Pass Icon -->
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"
@@ -6763,8 +6872,8 @@
                 <path d="M13 11v2"></path>
               </svg>
             </span>
-            <span class="btn-label-desktop">Book Bhakti Beats (27 Sep)</span>
-            <span class="btn-label-mobile">Book Bhakti Beats</span>
+            <span class="btn-label-desktop">Sponsorship &amp; Event (27 Sep)</span>
+            <span class="btn-label-mobile">Sponsorship &amp; Event</span>
             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -7192,67 +7301,16 @@
 
         </div>
 
-        <!-- Right Column: 3D Layered Stacked Photo Deck ("Ek ke uper ek") -->
-        <div class="beats-stacked-visual-col">
-          <div class="stacked-photos-deck" id="photosDeck" title="Click to shuffle photos">
-
-            <!-- Photo 1: Live High-Energy Bhajan Jamming with Nitin Lathe (Top Card) -->
-            <div class="photo-card-frame pos-top" data-index="0">
+        <!-- Right Column: Single Premium Showcase Photo Card -->
+        <div class="beats-single-visual-col">
+          <div class="beats-showcase-card">
+            <div class="beats-showcase-frame">
               <img
-                src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659627/Gemini_Generated_Image_og2xtog2xtog2xto.png"
-                alt="Live High-Energy Bhajan Jamming Session with Nitin Lathe" loading="lazy" decoding="async" />
-              <span class="photo-card-tag">Live Bhajan Jamming</span>
+                src="https://lh3.googleusercontent.com/d/19tGgjtY465KOQnwSyMJotc3d6ZWHY73U=w1400"
+                alt="Live High-Energy Bhajan Jamming Session with Nitin Lathe" loading="lazy" decoding="async"
+                onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=19tGgjtY465KOQnwSyMJotc3d6ZWHY73U&sz=w1400';" />
             </div>
-
-            <!-- Photo 2: Families & Youth Celebrating (Middle Card) -->
-            <div class="photo-card-frame pos-mid" data-index="1">
-              <img
-                src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659614/Gemini_Generated_Image_3s3e7s3s3e7s3s3e.png"
-                alt="Families and Youth Singing & Dancing in Celebration" loading="lazy" decoding="async" />
-              <span class="photo-card-tag">Families Sing Together</span>
-            </div>
-
-            <!-- Photo 3: Devotional Instruments & Harmonium (Bottom Card) -->
-            <div class="photo-card-frame pos-bot" data-index="2">
-              <img
-                src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659608/Gemini_Generated_Image_3s3e7s3s3e7s3s3e_1.png"
-                alt="Acoustic Harmonium and Devotional Instruments" loading="lazy" decoding="async" />
-              <span class="photo-card-tag">Devotion Has Rhythm</span>
-            </div>
-
           </div>
-
-          <!-- Interactive Controls Strip -->
-          <div class="deck-controls-strip">
-            <button class="deck-nav-btn" id="deckPrevBtn" aria-label="Previous Photo" title="Previous Photo">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </button>
-
-            <button class="deck-hint-pill" id="deckShuffleBtn" title="Click to cycle to next photo">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
-              </svg>
-              <span>Click to Shuffle Photo</span>
-            </button>
-
-            <div class="deck-dots" id="deckDots">
-              <span class="deck-dot active" data-dot="0"></span>
-              <span class="deck-dot" data-dot="1"></span>
-              <span class="deck-dot" data-dot="2"></span>
-            </div>
-
-            <button class="deck-nav-btn" id="deckNextBtn" aria-label="Next Photo" title="Next Photo">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </button>
-          </div>
-
         </div>
 
       </div>
@@ -7442,8 +7500,8 @@
     </div>
   </section>
 
-  <!-- 8. EVENTS SECTION: 50/50 Half Screen Image & Half Screen Text Split -->
-  <section class="events-section" id="events" aria-label="Upcoming Events and Booking">
+  <!-- 8. EVENTS & SPONSORSHIP SECTION: Bhajan Bhakti Evening -->
+  <section class="events-section" id="events" aria-label="Upcoming Events and Sponsorship Invitation">
     <!-- Ambient Atmospheric Stage Lights -->
     <div class="events-ambient-glow" aria-hidden="true"></div>
 
@@ -7454,13 +7512,25 @@
 
         <!-- Left Half: Full-Height Event Visual / Poster -->
         <div class="events-visual-half">
-          <div class="events-image-wrapper">
+          <div class="events-image-wrapper" id="eventPosterWrapper" tabindex="0" role="button"
+            aria-label="View Bhajan Bhakti Evening Poster Fullscreen"
+            data-img-src="https://lh3.googleusercontent.com/d/1JMEaVpFXqSxXuYMakm6i8ayvcTCUHabg=s0">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659055/Gemini_Generated_Image_yro9x1yro9x1yro9.png"
-              alt="Bhakti Beats Live Event — 27 September 2026 at Ravindra Natya Mandir, Dadar, Mumbai" loading="lazy"
-              decoding="async" />
-            <div class="events-poster-chip">
-              <span>🎟️ Limited Seats Available</span>
+              id="eventPosterImg"
+              src="https://lh3.googleusercontent.com/d/1JMEaVpFXqSxXuYMakm6i8ayvcTCUHabg=w1200"
+              alt="Bhajan Bhakti Evening — 27 September 2026 at Ravindra Natya Mandir, Dadar, Mumbai" loading="lazy"
+              decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1JMEaVpFXqSxXuYMakm6i8ayvcTCUHabg&sz=w1200';" />
+            <div class="photo-bento-zoom" aria-hidden="true" style="opacity: 0; transition: opacity 0.3s ease;">
+              <div class="photo-zoom-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -7471,27 +7541,40 @@
           <!-- Badge Pill -->
           <div class="events-pill">
             <span class="events-live-dot" aria-hidden="true"></span>
-            <span class="events-pill-text">Upcoming Event</span>
+            <span class="events-pill-text">🌸 JAI SHRI KRISHNA • SPONSORSHIP INVITATION</span>
           </div>
 
           <!-- Section Main Title -->
-          <h2 class="events-main-title">Book Your <span class="gold-span">Bhakti Beats Evening</span></h2>
+          <h2 class="events-main-title">
+            <span style="font-size: clamp(14px, 1.2vw, 18px); display: block; letter-spacing: 0.12em; text-transform: uppercase; color: #93C5FD; margin-bottom: 8px; font-family: var(--font-display); font-weight: 800;">KIRTAN CLAP Presents</span>
+            <span style="display: block; font-size: clamp(34px, 4vw, 56px); color: #FFFFFF; font-family: var(--font-serif); font-weight: 850; line-height: 1.1; margin-bottom: 4px;">Bhakti Beats</span>
+            <span style="display: block; font-size: clamp(28px, 3.2vw, 46px); color: #F7CA68; font-family: var(--font-serif); font-weight: 800; line-height: 1.15;">Bhajan Bhakti Evening</span>
+          </h2>
 
-          <!-- Event Lead & Date Subtitle -->
+          <!-- Event Lead & Invitation Subtitle -->
           <p class="events-highlight-lead">
-            Join Nitin Lathe for an unforgettable evening of high-energy Bhajans, soulful kirtan, collective clapping
-            and celebration.
+            <strong>Let's celebrate devotion and also celebrate YOUR brand!</strong><br>
+            We are inviting reputed brands &amp; families to partner with us for the biggest Bhajan Evening in the city — with an engaged audience of <strong>900+ devoted families</strong>.
           </p>
 
-          <!-- Key Meta Details (Venue, Time, Ticket) -->
+          <!-- Key Meta Details (Date, Time, Venue, Audience) -->
           <div class="events-meta-list">
 
             <div class="events-meta-entry">
               <span class="meta-entry-icon">📅</span>
               <div class="meta-entry-info">
-                <span class="meta-entry-label">Date & Day</span>
+                <span class="meta-entry-label">Date &amp; Day</span>
                 <strong class="meta-entry-val">27 September 2026</strong>
                 <span class="meta-entry-sub">Sunday Special</span>
+              </div>
+            </div>
+
+            <div class="events-meta-entry">
+              <span class="meta-entry-icon">⏰</span>
+              <div class="meta-entry-info">
+                <span class="meta-entry-label">Time</span>
+                <strong class="meta-entry-val">8:00 PM – 10:00 PM</strong>
+                <span class="meta-entry-sub">2 Hours Devotional Bliss</span>
               </div>
             </div>
 
@@ -7505,20 +7588,11 @@
             </div>
 
             <div class="events-meta-entry">
-              <span class="meta-entry-icon">⏰</span>
+              <span class="meta-entry-icon">👥</span>
               <div class="meta-entry-info">
-                <span class="meta-entry-label">Time</span>
-                <strong class="meta-entry-val">To be announced</strong>
-                <span class="meta-entry-sub">Evening Experience</span>
-              </div>
-            </div>
-
-            <div class="events-meta-entry">
-              <span class="meta-entry-icon">🎟️</span>
-              <div class="meta-entry-info">
-                <span class="meta-entry-label">Pass / Ticket</span>
-                <strong class="meta-entry-val highlight-price">₹999 <span class="price-per-unit">/ Person</span></strong>
-                <span class="meta-entry-sub">Inclusive of Entry</span>
+                <span class="meta-entry-label">Audience Reach</span>
+                <strong class="meta-entry-val highlight-price">900+ <span class="price-per-unit">Devoted Families</span></strong>
+                <span class="meta-entry-sub">City's Biggest Event</span>
               </div>
             </div>
 
@@ -7527,42 +7601,55 @@
           <!-- Live Real-Time Animated Countdown Clock -->
           <div class="events-countdown-strip" aria-label="Event Countdown">
             <div class="events-clock-box">
-              <span class="events-clock-num" id="countDays">33</span>
+              <span class="events-clock-num" id="countDays">31</span>
               <span class="events-clock-tag">Days</span>
             </div>
             <span class="events-clock-divider">:</span>
             <div class="events-clock-box">
-              <span class="events-clock-num" id="countHours">03</span>
+              <span class="events-clock-num" id="countHours">04</span>
               <span class="events-clock-tag">Hours</span>
             </div>
             <span class="events-clock-divider">:</span>
             <div class="events-clock-box">
-              <span class="events-clock-num" id="countMins">42</span>
+              <span class="events-clock-num" id="countMins">43</span>
               <span class="events-clock-tag">Minutes</span>
             </div>
             <span class="events-clock-divider">:</span>
             <div class="events-clock-box">
-              <span class="events-clock-num" id="countSecs">32</span>
+              <span class="events-clock-num" id="countSecs">55</span>
               <span class="events-clock-tag">Seconds</span>
             </div>
           </div>
 
           <!-- Booking Actions & Share Row -->
           <div class="events-action-row">
-            <a href="#media" class="event-book-cta" id="bookBhaktiBeatsBtn">
-              <span>Book Your Bhakti Beats Experience</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; width: 100%;">
+              <a href="https://wa.me/919819981813?text=Jai%20Shri%20Krishna!%20I%20am%20interested%20in%20Sponsorship%20for%20Bhajan%20Bhakti%20Evening%20(27%20Sep%202026)." target="_blank" rel="noopener noreferrer" class="event-book-cta" id="bookBhaktiBeatsBtn" style="flex: 1.2; min-width: 240px;">
+                <span>Inquire Sponsorship on WhatsApp</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <a href="tel:9819981813" class="contact-call-btn" style="padding: 16px 28px; font-size: 14.5px; border-radius: 9999px; flex: 0.8; min-width: 180px;">
+                <span>📞 Call Mamta: 9819981813</span>
+              </a>
+            </div>
 
             <div class="event-share-row">
-              <span class="share-label">Follow & Share:</span>
+              <span class="share-label">Share with Brands &amp; Families:</span>
               <div class="share-icons-group">
 
-                <!-- 1. Instagram -->
+                <!-- 1. WhatsApp Share -->
+                <a href="https://api.whatsapp.com/send?text=🌸%20JAI%20SHRI%20KRISHNA%20|%20SPONSORSHIP%20INVITATION%20🌸%0AKIRTAN%20CLAP%20Presents%20-%20BHAJAN%20BHAKTI%20EVENING%0ADate:%2027th%20September%202026%20|%208PM-10PM%20at%20Ravindra%20Natya%20Mandir,%20Dadar,%20Mumbai.%0AAudience:%20900%2B%20Devoted%20Families.%0AContact:%20Mamta%20Khandelwal%20(9819981813)%0ARadhe%20Radhe%20🙏" target="_blank" rel="noopener noreferrer"
+                  class="social-share-btn wa-btn" aria-label="Share on WhatsApp" title="Share on WhatsApp">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                </a>
+
+                <!-- 2. Instagram -->
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
                   class="social-share-btn insta-btn" aria-label="Instagram" title="Instagram">
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
@@ -7573,7 +7660,7 @@
                   </svg>
                 </a>
 
-                <!-- 2. Facebook -->
+                <!-- 3. Facebook -->
                 <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
                   class="social-share-btn fb-btn" aria-label="Facebook" title="Facebook">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -7581,7 +7668,7 @@
                   </svg>
                 </a>
 
-                <!-- 3. YouTube -->
+                <!-- 4. YouTube -->
                 <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
                   class="social-share-btn yt-btn" aria-label="YouTube" title="YouTube">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -7599,150 +7686,213 @@
 
       </div>
 
-      <!-- Part 2: Unified Dual Pillars (Who Should Attend + Five Reasons To Be There) -->
-      <div class="event-unified-experience">
-        <div class="event-dual-pillars-grid">
+      <!-- Part 2: Sponsorship Categories & Packages Grid -->
+      <div class="sponsorship-experience-wrapper" id="sponsorship-tiers">
+        <div class="sponsorship-header-center">
+          <div class="events-pill">
+            <span class="events-live-dot" aria-hidden="true"></span>
+            <span class="events-pill-text">✨ SPONSORSHIP CATEGORIES ✨</span>
+          </div>
+          <h3 class="events-main-title" style="font-size: clamp(28px, 3.2vw, 44px);">Choose Your <span class="gold-span">Seva Partnership</span></h3>
+          <p style="color: #CBD5E1; font-size: clamp(14.5px, 1.1vw, 17px); margin: 0; max-width: 720px; line-height: 1.6;">
+            We are inviting reputed brands &amp; families to partner with us for the biggest Bhajan Evening in the city. An audience of 900+ devoted families.
+          </p>
+        </div>
 
-          <!-- Left Pillar (50%): Who Should Attend? (6 Personas + Philosophy Quote) -->
-          <div class="pillar-attend-col">
-            <div class="pillar-header-group">
-              <div class="pillar-header-pill">
-                <span class="pillar-header-pill-text">👥 Who Should Attend?</span>
+        <!-- 4 Tiers Grid -->
+        <div class="sponsorship-tiers-grid">
+
+          <!-- 1. SHRI SEVA SPONSOR -->
+          <div class="sponsorship-tier-card">
+            <div class="tier-header-content">
+              <span class="tier-category-icon">🪔</span>
+              <h4 class="tier-title">Shri Seva Sponsor</h4>
+              <div class="tier-price-box">
+                <span class="tier-price-val">Rs. 11,000/-</span>
               </div>
-              <h3 class="pillar-main-title">Come As <span class="gold-span">You Are.</span></h3>
+              <span class="tier-passes-pill">🎟️ 3 Passes Complimentary</span>
             </div>
 
-            <!-- 6 Open Personas Grid (2x3) -->
-            <div class="pillar-personas-grid">
+            <ul class="tier-perks-list">
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>3 Passes Complimentary</strong> for your family &amp; guests</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>2 Announcements</strong> of your brand during the show</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span>Divine brand visibility among 900+ devotees</span>
+              </li>
+            </ul>
 
-              <!-- 1. Music Lovers -->
-              <div class="pillar-persona-item">
-                <div class="pillar-persona-icon">🎵</div>
-                <div class="pillar-persona-info">
-                  <h4 class="pillar-persona-title">Music Lovers</h4>
-                  <p class="pillar-persona-desc">Experience devotional music differently.</p>
-                </div>
-              </div>
-
-              <!-- 2. Families -->
-              <div class="pillar-persona-item">
-                <div class="pillar-persona-icon">👨‍👩‍👧‍👦</div>
-                <div class="pillar-persona-info">
-                  <h4 class="pillar-persona-title">Families</h4>
-                  <p class="pillar-persona-desc">Create a meaningful memory together.</p>
-                </div>
-              </div>
-
-              <!-- 3. Spiritual Seekers -->
-              <div class="pillar-persona-item">
-                <div class="pillar-persona-icon">🙏</div>
-                <div class="pillar-persona-info">
-                  <h4 class="pillar-persona-title">Spiritual Seekers</h4>
-                  <p class="pillar-persona-desc">Discover devotion through participation.</p>
-                </div>
-              </div>
-
-              <!-- 4. Young Generation -->
-              <div class="pillar-persona-item">
-                <div class="pillar-persona-icon">⚡</div>
-                <div class="pillar-persona-info">
-                  <h4 class="pillar-persona-title">Young Generation</h4>
-                  <p class="pillar-persona-desc">Experience spirituality with modern energy.</p>
-                </div>
-              </div>
-
-              <!-- 5. Senior Generation -->
-              <div class="pillar-persona-item">
-                <div class="pillar-persona-icon">🕊️</div>
-                <div class="pillar-persona-info">
-                  <h4 class="pillar-persona-title">Senior Generation</h4>
-                  <p class="pillar-persona-desc">Reconnect with timeless Bhajans and Kirtans.</p>
-                </div>
-              </div>
-
-              <!-- 6. First-Timers -->
-              <div class="pillar-persona-item">
-                <div class="pillar-persona-icon">🌟</div>
-                <div class="pillar-persona-info">
-                  <h4 class="pillar-persona-title">First-Timers</h4>
-                  <p class="pillar-persona-desc">No previous spiritual or musical experience required.</p>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Golden Statement Quote -->
-            <div class="pillar-quote-box">
-              <blockquote class="pillar-quote-text">
-                “Bhakti Beats Isn’t About How Much You Know.<br>
-                <span class="gold-span">It’s About What You Feel.”</span>
-              </blockquote>
-            </div>
-
+            <a href="https://wa.me/919819981813?text=Jai%20Shri%20Krishna!%20I%20want%20to%20partner%20as%20SHRI%20SEVA%20SPONSOR%20(Rs.%2011,000)%20for%20Bhajan%20Bhakti%20Evening%2027th%20Sept%202026." target="_blank" rel="noopener noreferrer" class="tier-action-btn">
+              <span>Choose Shri Seva</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
           </div>
 
-          <!-- Right Pillar (50%): Why Bhakti Beats? (Five Reasons To Be There) -->
-          <div class="pillar-why-col">
-            <div class="pillar-header-group">
-              <div class="pillar-header-pill">
-                <span class="pillar-header-pill-text">✨ Why Bhakti Beats?</span>
+          <!-- 2. BHAKTI SEVA SPONSOR -->
+          <div class="sponsorship-tier-card">
+            <div class="tier-header-content">
+              <span class="tier-category-icon">🌸</span>
+              <h4 class="tier-title">Bhakti Seva Sponsor</h4>
+              <div class="tier-price-box">
+                <span class="tier-price-val">Rs. 21,000/-</span>
               </div>
-              <h3 class="pillar-main-title">Five Reasons <span class="gold-span">To Be There</span></h3>
+              <span class="tier-passes-pill">🎟️ 5 Passes Complimentary</span>
             </div>
 
-            <!-- 5 Numbered Open Reasons -->
-            <div class="pillar-reasons-list">
+            <ul class="tier-perks-list">
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>5 Passes Complimentary</strong> for your team &amp; guests</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>4 Announcements</strong> (Every 30 mins) during the show</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span>Repeated stage mentions throughout the event</span>
+              </li>
+            </ul>
 
-              <!-- 01 -->
-              <div class="pillar-reason-row">
-                <span class="pillar-reason-num">01</span>
-                <div class="pillar-reason-content">
-                  <h4 class="pillar-reason-title">Feel Lighter</h4>
-                  <p class="pillar-reason-desc">Step away from everyday stress.</p>
-                </div>
+            <a href="https://wa.me/919819981813?text=Jai%20Shri%20Krishna!%20I%20want%20to%20partner%20as%20BHAKTI%20SEVA%20SPONSOR%20(Rs.%2021,000)%20for%20Bhajan%20Bhakti%20Evening%2027th%20Sept%202026." target="_blank" rel="noopener noreferrer" class="tier-action-btn">
+              <span>Choose Bhakti Seva</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- 3. RADHA SEVA SPONSOR -->
+          <div class="sponsorship-tier-card featured-tier">
+            <div class="tier-badge-top">⭐ Most Popular</div>
+            <div class="tier-header-content">
+              <span class="tier-category-icon">🪷</span>
+              <h4 class="tier-title" style="color: #F7CA68 !important;">Radha Seva Sponsor</h4>
+              <div class="tier-price-box">
+                <span class="tier-price-val">Rs. 51,000/-</span>
               </div>
-
-              <!-- 02 -->
-              <div class="pillar-reason-row">
-                <span class="pillar-reason-num">02</span>
-                <div class="pillar-reason-content">
-                  <h4 class="pillar-reason-title">Connect</h4>
-                  <p class="pillar-reason-desc">Spend meaningful time with family and friends.</p>
-                </div>
-              </div>
-
-              <!-- 03 -->
-              <div class="pillar-reason-row">
-                <span class="pillar-reason-num">03</span>
-                <div class="pillar-reason-content">
-                  <h4 class="pillar-reason-title">Experience Devotion</h4>
-                  <p class="pillar-reason-desc">Explore spirituality through music.</p>
-                </div>
-              </div>
-
-              <!-- 04 -->
-              <div class="pillar-reason-row">
-                <span class="pillar-reason-num">04</span>
-                <div class="pillar-reason-content">
-                  <h4 class="pillar-reason-title">Feel Collective Energy</h4>
-                  <p class="pillar-reason-desc">Experience hundreds of voices singing together.</p>
-                </div>
-              </div>
-
-              <!-- 05 -->
-              <div class="pillar-reason-row">
-                <span class="pillar-reason-num">05</span>
-                <div class="pillar-reason-content">
-                  <h4 class="pillar-reason-title">Celebrate</h4>
-                  <p class="pillar-reason-desc">Sing, clap, dance and experience joy without barriers.</p>
-                </div>
-              </div>
-
+              <span class="tier-passes-pill" style="background: rgba(247, 202, 104, 0.25); border-color: #F7CA68; color: #FFF;">🎟️ 7 Passes Complimentary</span>
             </div>
 
+            <ul class="tier-perks-list">
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>7 Passes Complimentary</strong> with prime seating</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>Your Brand AD played 2 times</strong> on BIG LED Screen</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>1 Standee Banner</strong> Placement</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>Pamphlet Distribution</strong> to all audience</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon">✓</span>
+                <span><strong>4 Brand Announcements</strong> on stage</span>
+              </li>
+            </ul>
+
+            <a href="https://wa.me/919819981813?text=Jai%20Shri%20Krishna!%20I%20want%20to%20partner%20as%20RADHA%20SEVA%20SPONSOR%20(Rs.%2051,000)%20for%20Bhajan%20Bhakti%20Evening%2027th%20Sept%202026." target="_blank" rel="noopener noreferrer" class="tier-action-btn featured-btn">
+              <span>Choose Radha Seva</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- 4. MAHA SEVA SPONSOR [MAIN SPONSOR] -->
+          <div class="sponsorship-tier-card vip-tier">
+            <div class="tier-badge-top vip-badge">👑 MAIN SPONSOR</div>
+            <div class="tier-header-content">
+              <span class="tier-category-icon">💎</span>
+              <h4 class="tier-title" style="color: #FDE047 !important;">Maha Seva Sponsor</h4>
+              <div class="tier-price-box">
+                <span class="tier-price-val" style="color: #FDE047 !important;">Rs. 1,00,000/-</span>
+              </div>
+              <span class="tier-passes-pill" style="background: rgba(253, 224, 71, 0.25); border-color: #FDE047; color: #FFF;">👑 10 VIP Front Row Passes</span>
+            </div>
+
+            <ul class="tier-perks-list">
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon" style="color: #FDE047;">★</span>
+                <span><strong>10 Passes Complimentary</strong> (VIP Front Row)</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon" style="color: #FDE047;">★</span>
+                <span><strong>Your Brand AD played 4 times</strong> on BIG LED Screen</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon" style="color: #FDE047;">★</span>
+                <span><strong>2 Standee Banner</strong> Placements</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon" style="color: #FDE047;">★</span>
+                <span><strong>One Full Stall</strong> to showcase products/services</span>
+              </li>
+              <li class="tier-perk-item">
+                <span class="tier-perk-icon" style="color: #FDE047;">★</span>
+                <span><strong>Distribution of your ad material</strong> + 4 Brand Announcements</span>
+              </li>
+            </ul>
+
+            <a href="https://wa.me/919819981813?text=Jai%20Shri%20Krishna!%20I%20want%20to%20partner%20as%20MAHA%20SEVA%20MAIN%20SPONSOR%20(Rs.%201,00,000)%20for%20Bhajan%20Bhakti%20Evening%2027th%20Sept%202026." target="_blank" rel="noopener noreferrer" class="tier-action-btn vip-btn">
+              <span>Become Main Sponsor</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
           </div>
 
         </div>
+
+        <!-- Divine Blessing Quote Banner & Contact Card -->
+        <div class="sponsorship-bottom-card">
+          <div class="blessing-quote-group">
+            <div class="blessing-quote-tag">
+              <span>🌸 DIVINE BLESSINGS FOR YOUR BRAND 🌸</span>
+            </div>
+            <blockquote class="blessing-quote-text">
+              “Your brand will be blessed in the name of Krishna in front of hundreds of families. <span style="color: #F7CA68; font-weight: 700;">What better marketing than Divine Blessing!”</span>
+            </blockquote>
+          </div>
+
+          <div class="blessing-contact-box">
+            <div class="contact-person-info">
+              <span class="contact-lead-sub">✨ Limited Sponsorship Slots ✨</span>
+              <h4 class="contact-name-title">Mamta Khandelwal</h4>
+              <span class="contact-salutation">Contact: 9819981813 • Radhe Radhe 🙏</span>
+            </div>
+
+            <div class="contact-actions-pair">
+              <a href="tel:9819981813" class="contact-call-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span>Call 9819981813</span>
+              </a>
+              <a href="https://wa.me/919819981813?text=Radhe%20Radhe!%20Mamta%20ji,%20I%20am%20interested%20in%20sponsoring%20the%20Bhajan%20Bhakti%20Evening%20on%2027th%20Sept%202026." target="_blank" rel="noopener noreferrer" class="contact-wa-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
+                <span>WhatsApp Us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -7770,173 +7920,194 @@
         </p>
       </div>
 
-      <!-- Video Showcase Grid: Pure Clean Visuals (9 Real Event Videos) -->
+      <!-- Video Showcase Grid: Pure Clean Visuals (11 Real Event Videos - No Text) -->
       <div class="video-showcase-grid" id="videoGrid">
 
-        <!-- Video 1 -->
+        <!-- Video 1 (Previously Video 3) -->
         <div class="video-grid-card" data-video-index="0"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653249/VID-20260822-WA0023.mp4"
-          data-video-title="Bhakti Beats Live Ecstatic Kirtan" tabindex="0" role="button"
-          aria-label="Play Video: Bhakti Beats Live Ecstatic Kirtan">
+          data-video-src="https://drive.google.com/file/d/1GzIRBRuS7QWJ_9Hebykzvc6M5z8pKoYQ/preview"
+          data-video-title="Devotional Unity & Joy" tabindex="0" role="button"
+          aria-label="Play Video: Devotional Unity & Joy">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653249/VID-20260822-WA0023.jpg"
-            alt="Bhakti Beats Live Ecstatic Kirtan" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1GzIRBRuS7QWJ_9Hebykzvc6M5z8pKoYQ=w800"
+            alt="Devotional Unity & Joy" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1GzIRBRuS7QWJ_9Hebykzvc6M5z8pKoYQ&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
-          <div class="video-live-badge">
-            <span class="live-dot-pulse" aria-hidden="true"></span>
-            <span>LIVE</span>
-          </div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">03:45</span>
         </div>
 
         <!-- Video 2 -->
         <div class="video-grid-card" data-video-index="1"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653226/VID-20260822-WA0025.mp4"
-          data-video-title="Mass Devotional Chanting & Clapping" tabindex="0" role="button"
-          aria-label="Play Video: Mass Devotional Chanting & Clapping">
+          data-video-src="https://drive.google.com/file/d/1qmWnYQX-C0lS_v9_BCsjAaRSgajR1vpk/preview"
+          data-video-title="Ecstatic Chanting Atmosphere" tabindex="0" role="button"
+          aria-label="Play Video: Ecstatic Chanting Atmosphere">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653226/VID-20260822-WA0025.jpg"
-            alt="Mass Devotional Chanting & Clapping" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1qmWnYQX-C0lS_v9_BCsjAaRSgajR1vpk=w800"
+            alt="Ecstatic Chanting Atmosphere" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1qmWnYQX-C0lS_v9_BCsjAaRSgajR1vpk&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">04:20</span>
         </div>
 
-        <!-- Video 3 -->
+        <!-- Video 3 (Previously Video 1) -->
         <div class="video-grid-card" data-video-index="2"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653220/VID-20260822-WA0021.mp4"
-          data-video-title="Radha Krishna Bhajan Jamming" tabindex="0" role="button"
-          aria-label="Play Video: Radha Krishna Bhajan Jamming">
+          data-video-src="https://drive.google.com/file/d/1sO0Pbq2lqllvrsL7lO5SdGl7-ue5yEXX/preview"
+          data-video-title="Live Bhajan Jamming" tabindex="0" role="button"
+          aria-label="Play Video: Live Bhajan Jamming">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653220/VID-20260822-WA0021.jpg"
-            alt="Radha Krishna Bhajan Jamming" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1sO0Pbq2lqllvrsL7lO5SdGl7-ue5yEXX=w800"
+            alt="Live Bhajan Jamming" class="video-thumb-img" style="object-position: center 20%;" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1sO0Pbq2lqllvrsL7lO5SdGl7-ue5yEXX&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">03:50</span>
         </div>
 
         <!-- Video 4 -->
         <div class="video-grid-card" data-video-index="3"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653214/VID-20260822-WA0022.mp4"
-          data-video-title="Spiritual Rhythm & Community Energy" tabindex="0" role="button"
-          aria-label="Play Video: Spiritual Rhythm & Community Energy">
+          data-video-src="https://drive.google.com/file/d/1aKhmSV50Ul-jFalzEnvqYSnOMXgNM529/preview"
+          data-video-title="Kirtan Clap Live Experience" tabindex="0" role="button"
+          aria-label="Play Video: Kirtan Clap Live Experience">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653214/VID-20260822-WA0022.jpg"
-            alt="Spiritual Rhythm & Community Energy" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1aKhmSV50Ul-jFalzEnvqYSnOMXgNM529=w800"
+            alt="Kirtan Clap Live Experience" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1aKhmSV50Ul-jFalzEnvqYSnOMXgNM529&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">04:45</span>
         </div>
 
         <!-- Video 5 -->
         <div class="video-grid-card" data-video-index="4"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653204/VID-20260822-WA0024.mp4"
-          data-video-title="Joyful Kirtan Celebration" tabindex="0" role="button"
-          aria-label="Play Video: Joyful Kirtan Celebration">
+          data-video-src="https://drive.google.com/file/d/1m_hQd2-2KMxpya9bNchJJTUnfSk7UNOP/preview"
+          data-video-title="Spiritual Awakening Melody" tabindex="0" role="button"
+          aria-label="Play Video: Spiritual Awakening Melody">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653204/VID-20260822-WA0024.jpg"
-            alt="Joyful Kirtan Celebration" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1m_hQd2-2KMxpya9bNchJJTUnfSk7UNOP=w800"
+            alt="Spiritual Awakening Melody" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1m_hQd2-2KMxpya9bNchJJTUnfSk7UNOP&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">05:10</span>
         </div>
 
         <!-- Video 6 -->
         <div class="video-grid-card" data-video-index="5"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653203/VID-20260822-WA0020.mp4"
-          data-video-title="Soulful Bhajan Experience" tabindex="0" role="button"
-          aria-label="Play Video: Soulful Bhajan Experience">
+          data-video-src="https://drive.google.com/file/d/1_oFSBp21EQSSns5o4yeswXFyXOw8YNm-/preview"
+          data-video-title="Sacred Chants with Devotees" tabindex="0" role="button"
+          aria-label="Play Video: Sacred Chants with Devotees">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653203/VID-20260822-WA0020.jpg"
-            alt="Soulful Bhajan Experience" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1_oFSBp21EQSSns5o4yeswXFyXOw8YNm-=w800"
+            alt="Sacred Chants with Devotees" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1_oFSBp21EQSSns5o4yeswXFyXOw8YNm-&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">03:30</span>
         </div>
 
         <!-- Video 7 -->
         <div class="video-grid-card" data-video-index="6"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653198/VID-20260822-WA0017.mp4"
-          data-video-title="Youth & Students Interactive Energy" tabindex="0" role="button"
-          aria-label="Play Video: Youth & Students Interactive Energy">
+          data-video-src="https://drive.google.com/file/d/1vWgzDPh6avvp1opODR5sxzUVC6uMkvDt/preview"
+          data-video-title="Rhythmic Clapping & Smiles" tabindex="0" role="button"
+          aria-label="Play Video: Rhythmic Clapping & Smiles">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653214/VID-20260822-WA0022.jpg"
-            alt="Youth & Students Interactive Energy" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1526478806334-5fd488fcaabc?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1vWgzDPh6avvp1opODR5sxzUVC6uMkvDt=w800"
+            alt="Rhythmic Clapping & Smiles" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1vWgzDPh6avvp1opODR5sxzUVC6uMkvDt&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">04:05</span>
         </div>
 
         <!-- Video 8 -->
         <div class="video-grid-card" data-video-index="7"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653197/VID-20260822-WA0019.mp4"
-          data-video-title="Live Harmonium & Percussion Beats" tabindex="0" role="button"
-          aria-label="Play Video: Live Harmonium & Percussion Beats">
+          data-video-src="https://drive.google.com/file/d/1PWC8pYPBzeXnY3DnMcn-acZjI1dSpgpZ/preview"
+          data-video-title="Temple Bhajan Gathering" tabindex="0" role="button"
+          aria-label="Play Video: Temple Bhajan Gathering">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653197/VID-20260822-WA0019.jpg"
-            alt="Live Harmonium & Percussion Beats" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1PWC8pYPBzeXnY3DnMcn-acZjI1dSpgpZ=w800"
+            alt="Temple Bhajan Gathering" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1PWC8pYPBzeXnY3DnMcn-acZjI1dSpgpZ&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">05:15</span>
         </div>
 
         <!-- Video 9 -->
         <div class="video-grid-card" data-video-index="8"
-          data-video-src="https://res.cloudinary.com/fmwapqrc/video/upload/v1787653192/VID-20260822-WA0018.mp4"
-          data-video-title="Grand Devotional Finale Night" tabindex="0" role="button"
-          aria-label="Play Video: Grand Devotional Finale Night">
+          data-video-src="https://drive.google.com/file/d/1Nslo76-8uyrTHARQUR34C76kKGqM4hVV/preview"
+          data-video-title="Acoustic Bhajan Night" tabindex="0" role="button"
+          aria-label="Play Video: Acoustic Bhajan Night">
           <img
-            src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_800,c_fill,q_auto,f_auto/v1787653192/VID-20260822-WA0018.jpg"
-            alt="Grand Devotional Finale Night" class="video-thumb-img" loading="lazy" decoding="async"
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80';" />
+            src="https://lh3.googleusercontent.com/d/1Nslo76-8uyrTHARQUR34C76kKGqM4hVV=w800"
+            alt="Acoustic Bhajan Night" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1Nslo76-8uyrTHARQUR34C76kKGqM4hVV&sz=w800';" />
           <div class="video-card-overlay" aria-hidden="true"></div>
           <div class="video-play-halo" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
           </div>
-          <span class="video-time-tag">06:00</span>
+        </div>
+
+        <!-- Video 10 -->
+        <div class="video-grid-card" data-video-index="9"
+          data-video-src="https://drive.google.com/file/d/1oFNTDZ7jCrrE1FqJYWFqJHUgVuqyST2V/preview"
+          data-video-title="High-Spirit Kirtan Jam" tabindex="0" role="button"
+          aria-label="Play Video: High-Spirit Kirtan Jam">
+          <img
+            src="https://lh3.googleusercontent.com/d/1oFNTDZ7jCrrE1FqJYWFqJHUgVuqyST2V=w800"
+            alt="High-Spirit Kirtan Jam" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1oFNTDZ7jCrrE1FqJYWFqJHUgVuqyST2V&sz=w800';" />
+          <div class="video-card-overlay" aria-hidden="true"></div>
+          <div class="video-play-halo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Video 11 -->
+        <div class="video-grid-card" data-video-index="10"
+          data-video-src="https://drive.google.com/file/d/1jEs152wNd3_1Z3g3pgBquAhz-YsdG6XB/preview"
+          data-video-title="Divine Melody Live Stage" tabindex="0" role="button"
+          aria-label="Play Video: Divine Melody Live Stage">
+          <img
+            src="https://lh3.googleusercontent.com/d/1jEs152wNd3_1Z3g3pgBquAhz-YsdG6XB=w800"
+            alt="Divine Melody Live Stage" class="video-thumb-img" loading="lazy" decoding="async"
+            onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1jEs152wNd3_1Z3g3pgBquAhz-YsdG6XB&sz=w800';" />
+          <div class="video-card-overlay" aria-hidden="true"></div>
+          <div class="video-play-halo" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
         </div>
 
       </div>
@@ -7950,17 +8121,17 @@
           <h3 class="photo-gallery-title">Moments In <span class="gold-span">Motion & Soul</span></h3>
         </div>
 
-        <!-- 8 Asymmetrical Bento Image Grid (Pure Real Event Visuals) -->
+        <!-- 9 Asymmetrical Bento Image Grid (100% Real Event Visuals - No AI) -->
         <div class="photo-bento-grid" id="photoBentoGrid">
 
-          <!-- Photo 1: Big Featured 2x2 Tile (High Energy Concert Crowd) -->
+          <!-- Photo 1: Big Featured 2x2 Tile -->
           <div class="photo-bento-item size-featured" data-img-index="0"
-            data-img-src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659055/Gemini_Generated_Image_yro9x1yro9x1yro9.png"
+            data-img-src="https://lh3.googleusercontent.com/d/1PdRPsXSfB1S4sF8-pvscsydoSUh3FZ5i=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 1">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659055/Gemini_Generated_Image_yro9x1yro9x1yro9.png"
-              alt="Bhakti Beats Live Concert Energy with Nitin Lathe" class="photo-bento-img" loading="lazy"
-              decoding="async" />
+              src="https://lh3.googleusercontent.com/d/1PdRPsXSfB1S4sF8-pvscsydoSUh3FZ5i=w1000"
+              alt="Bhakti Beats Live Concert Moment" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1PdRPsXSfB1S4sF8-pvscsydoSUh3FZ5i&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -7974,14 +8145,14 @@
             </div>
           </div>
 
-          <!-- Photo 2: Tall Portrait 1x2 Tile (Nitin Lathe Portrait Visual) -->
+          <!-- Photo 2: Tall Portrait 1x2 Tile -->
           <div class="photo-bento-item size-tall" data-img-index="1"
-            data-img-src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787656274/3495eaf9-5dc0-4f02-b44c-ef2d6b740e8f.png"
+            data-img-src="https://lh3.googleusercontent.com/d/1MaEmBxkaMhl5CK-GZFspdjXQlG4ma3FQ=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 2">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787656274/3495eaf9-5dc0-4f02-b44c-ef2d6b740e8f.png"
-              alt="Nitin Lathe - Professor, Musician, Spiritual Communicator" class="photo-bento-img" loading="lazy"
-              decoding="async" />
+              src="https://lh3.googleusercontent.com/d/1MaEmBxkaMhl5CK-GZFspdjXQlG4ma3FQ=w1000"
+              alt="Harmonium & Devotional Music Experience" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1MaEmBxkaMhl5CK-GZFspdjXQlG4ma3FQ&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -7995,13 +8166,14 @@
             </div>
           </div>
 
-          <!-- Photo 3: Normal 1x1 Tile (Live Bhajan Jamming) -->
+          <!-- Photo 3: Normal 1x1 Tile -->
           <div class="photo-bento-item size-normal" data-img-index="2"
-            data-img-src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659627/Gemini_Generated_Image_og2xtog2xtog2xto.png"
+            data-img-src="https://lh3.googleusercontent.com/d/1HZjQcAsrN8dTxN6qaaZJoS9cOofY7MYz=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 3">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659627/Gemini_Generated_Image_og2xtog2xtog2xto.png"
-              alt="Live Bhajan Jamming & Harmonium Session" class="photo-bento-img" loading="lazy" decoding="async" />
+              src="https://lh3.googleusercontent.com/d/1HZjQcAsrN8dTxN6qaaZJoS9cOofY7MYz=w1000"
+              alt="Soulful Devotional Satsang Moment" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1HZjQcAsrN8dTxN6qaaZJoS9cOofY7MYz&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -8015,14 +8187,14 @@
             </div>
           </div>
 
-          <!-- Photo 4: Normal 1x1 Tile (Devotional Instruments & Tabla) -->
+          <!-- Photo 4: Normal 1x1 Tile -->
           <div class="photo-bento-item size-normal" data-img-index="3"
-            data-img-src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659608/Gemini_Generated_Image_3s3e7s3s3e7s3s3e_1.png"
+            data-img-src="https://lh3.googleusercontent.com/d/1qplbllJ-S32gvyDt-I0rmuklu33sBRHk=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 4">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659608/Gemini_Generated_Image_3s3e7s3s3e7s3s3e_1.png"
-              alt="Devotional Music, Tabla & Percussion Beats" class="photo-bento-img" loading="lazy"
-              decoding="async" />
+              src="https://lh3.googleusercontent.com/d/1qplbllJ-S32gvyDt-I0rmuklu33sBRHk=w1000"
+              alt="Audience Devotion, Clapping & Joy" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1qplbllJ-S32gvyDt-I0rmuklu33sBRHk&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -8036,13 +8208,14 @@
             </div>
           </div>
 
-          <!-- Photo 5: Wide Landscape 2x1 Tile (Mass Devotional Celebration) -->
+          <!-- Photo 5: Wide Landscape 2x1 Tile -->
           <div class="photo-bento-item size-wide" data-img-index="4"
-            data-img-src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659614/Gemini_Generated_Image_3s3e7s3s3e7s3s3e.png"
+            data-img-src="https://lh3.googleusercontent.com/d/17TMrJ8IKMzcTBXqLk_H6uyaSmNead32V=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 5">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/image/upload/v1787659614/Gemini_Generated_Image_3s3e7s3s3e7s3s3e.png"
-              alt="Mass Devotional Celebration & Dancing" class="photo-bento-img" loading="lazy" decoding="async" />
+              src="https://lh3.googleusercontent.com/d/17TMrJ8IKMzcTBXqLk_H6uyaSmNead32V=w1000"
+              alt="Youth & Students Kirtan Energy" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=17TMrJ8IKMzcTBXqLk_H6uyaSmNead32V&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -8056,14 +8229,14 @@
             </div>
           </div>
 
-          <!-- Photo 6: Normal 1x1 Tile (Audience Devotion & Clapping) -->
+          <!-- Photo 6: Normal 1x1 Tile -->
           <div class="photo-bento-item size-normal" data-img-index="5"
-            data-img-src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_1000,c_fill,q_auto,f_auto/v1787653226/VID-20260822-WA0025.jpg"
+            data-img-src="https://lh3.googleusercontent.com/d/1qmWnYQX-C0lS_v9_BCsjAaRSgajR1vpk=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 6">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_1000,c_fill,q_auto,f_auto/v1787653226/VID-20260822-WA0025.jpg"
-              alt="Audience Devotion, Clapping & Joy" class="photo-bento-img" loading="lazy" decoding="async"
-              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=85';" />
+              src="https://lh3.googleusercontent.com/d/1qmWnYQX-C0lS_v9_BCsjAaRSgajR1vpk=w1000"
+              alt="Ecstatic Chanting Atmosphere" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1qmWnYQX-C0lS_v9_BCsjAaRSgajR1vpk&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -8077,14 +8250,14 @@
             </div>
           </div>
 
-          <!-- Photo 7: Normal 1x1 Tile (Altar & Devotional Celebration) -->
+          <!-- Photo 7: Normal 1x1 Tile -->
           <div class="photo-bento-item size-normal" data-img-index="6"
-            data-img-src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_1000,c_fill,q_auto,f_auto/v1787653249/VID-20260822-WA0023.jpg"
+            data-img-src="https://lh3.googleusercontent.com/d/1_oFSBp21EQSSns5o4yeswXFyXOw8YNm-=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 7">
             <img
-              src="https://res.cloudinary.com/fmwapqrc/video/upload/so_1,w_1000,c_fill,q_auto,f_auto/v1787653249/VID-20260822-WA0023.jpg"
-              alt="Spiritual Altar & Aarti Celebration Moments" class="photo-bento-img" loading="lazy" decoding="async"
-              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=85';" />
+              src="https://lh3.googleusercontent.com/d/1_oFSBp21EQSSns5o4yeswXFyXOw8YNm-=w1000"
+              alt="Sacred Chants with Devotees" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1_oFSBp21EQSSns5o4yeswXFyXOw8YNm-&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -8098,14 +8271,35 @@
             </div>
           </div>
 
-          <!-- Photo 8: Wide Landscape 2x1 Tile (Classical Musical Mastery) -->
+          <!-- Photo 8: Wide Landscape 2x1 Tile -->
           <div class="photo-bento-item size-wide" data-img-index="7"
-            data-img-src="https://res.cloudinary.com/dapveboee/image/upload/v1787569992/ChatGPT_Image_Aug_22_2026_04_25_50_PM_tpbik8.png"
+            data-img-src="https://lh3.googleusercontent.com/d/1vWgzDPh6avvp1opODR5sxzUVC6uMkvDt=w1400"
             tabindex="0" role="button" aria-label="Open Fullscreen Photo 8">
             <img
-              src="https://res.cloudinary.com/dapveboee/image/upload/v1787569992/ChatGPT_Image_Aug_22_2026_04_25_50_PM_tpbik8.png"
-              alt="Nitin Lathe - 26+ Years Multifaceted Journey" class="photo-bento-img" loading="lazy"
-              decoding="async" />
+              src="https://lh3.googleusercontent.com/d/1vWgzDPh6avvp1opODR5sxzUVC6uMkvDt=w1000"
+              alt="Rhythmic Clapping & Smiles" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1vWgzDPh6avvp1opODR5sxzUVC6uMkvDt&sz=w1000';" />
+            <div class="photo-bento-zoom" aria-hidden="true">
+              <div class="photo-zoom-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  <line x1="11" y1="8" x2="11" y2="14"></line>
+                  <line x1="8" y1="11" x2="14" y2="11"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photo 9: Wide Landscape 2x1 Tile -->
+          <div class="photo-bento-item size-wide" data-img-index="8"
+            data-img-src="https://lh3.googleusercontent.com/d/1m_hQd2-2KMxpya9bNchJJTUnfSk7UNOP=w1400"
+            tabindex="0" role="button" aria-label="Open Fullscreen Photo 9">
+            <img
+              src="https://lh3.googleusercontent.com/d/1m_hQd2-2KMxpya9bNchJJTUnfSk7UNOP=w1000"
+              alt="Spiritual Awakening Melody" class="photo-bento-img" loading="lazy" decoding="async"
+              onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1m_hQd2-2KMxpya9bNchJJTUnfSk7UNOP&sz=w1000';" />
             <div class="photo-bento-zoom" aria-hidden="true">
               <div class="photo-zoom-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -8514,13 +8708,13 @@
               <span class="quick-contact-icon">✉️</span>
               <span>connect@nitinlathe.com</span>
             </a>
-            <a href="https://wa.me/919820000000" target="_blank" rel="noopener noreferrer" class="quick-contact-item">
+            <a href="https://wa.me/919324350543" target="_blank" rel="noopener noreferrer" class="quick-contact-item">
               <span class="quick-contact-icon">💬</span>
-              <span>WhatsApp: +91 98200 00000</span>
+              <span>WhatsApp: +91 93243 50543</span>
             </a>
             <div class="quick-contact-item">
               <span class="quick-contact-icon">📍</span>
-              <span>Mumbai / Thane, India</span>
+              <span>Mumbai, India</span>
             </div>
           </div>
 
@@ -8543,7 +8737,7 @@
 
             <div class="form-group">
               <label for="formPhone" class="form-label">Phone / WhatsApp Number *</label>
-              <input type="tel" id="formPhone" class="form-input" placeholder="+91 98765 43210" required />
+              <input type="tel" id="formPhone" class="form-input" placeholder="+91 93243 50543" required />
             </div>
 
             <div class="form-group">
@@ -8650,13 +8844,13 @@
               <span class="footer-contact-icon">✉️</span>
               <span>connect@nitinlathe.com</span>
             </a>
-            <a href="https://wa.me/919820000000" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+            <a href="https://wa.me/919324350543" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
               <span class="footer-contact-icon">💬</span>
-              <span>+91 98200 00000 (WhatsApp)</span>
+              <span>+91 93243 50543 (WhatsApp)</span>
             </a>
             <div class="footer-contact-link">
               <span class="footer-contact-icon">📍</span>
-              <span>Mumbai / Thane, Maharashtra, India</span>
+              <span>Mumbai, Maharashtra, India</span>
             </div>
           </div>
         </div>
@@ -8806,7 +9000,7 @@
 
       <!-- Bottom Status / Counter Bar -->
       <div class="video-modal-counter" id="videoModalCounter">
-        <span id="videoCurrentIndex">1</span> / <span id="videoTotalCount">9</span>
+        <span id="videoCurrentIndex">1</span> / <span id="videoTotalCount">11</span>
       </div>
     </div>
   </div>
@@ -8850,13 +9044,13 @@
 
       <!-- Bottom Counter Bar -->
       <div class="image-modal-counter">
-        <span id="imageCurrentIndex">1</span> / <span id="imageTotalCount">8</span>
+        <span id="imageCurrentIndex">1</span> / <span id="imageTotalCount">9</span>
       </div>
     </div>
   </div>
 
   <!-- Floating WhatsApp Connect Widget (Bottom Right Corner) -->
-  <a href="https://wa.me/919820000000?text=Hi%20Nitin%20Lathe,%20I%20would%20like%20to%20connect%20with%20you!"
+  <a href="https://wa.me/919324350543?text=Hi%20Nitin%20Lathe,%20I%20would%20like%20to%20connect%20with%20you!"
     target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floatingWhatsappBtn"
     aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
     <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -9094,134 +9288,8 @@
       metricCols.forEach(col => metricsObserver.observe(col));
     }
 
-    // 6. Interactive 3D Stacked Photo Deck Controller (Smooth Card Shuffle)
-    const photoDeck = document.getElementById('photosDeck');
-    const photoCards = document.querySelectorAll('.photo-card-frame');
-    const deckDots = document.querySelectorAll('.deck-dot');
-    const deckPrevBtn = document.getElementById('deckPrevBtn');
-    const deckNextBtn = document.getElementById('deckNextBtn');
-    const deckShuffleBtn = document.getElementById('deckShuffleBtn');
-
-    // Order array representing card indices at [pos-top, pos-mid, pos-bot]
-    let cardOrder = [0, 1, 2];
-    let isShuffling = false;
-
-    function updateDeckPositions() {
-      const posClasses = ['pos-top', 'pos-mid', 'pos-bot'];
-
-      photoCards.forEach((card, index) => {
-        card.classList.remove('pos-top', 'pos-mid', 'pos-bot');
-        const posIndex = cardOrder.indexOf(index);
-        if (posIndex !== -1) {
-          card.classList.add(posClasses[posIndex]);
-        }
-      });
-
-      // Update dots to highlight the current top card
-      const activeCardIndex = cardOrder[0];
-      deckDots.forEach((dot, idx) => {
-        if (idx === activeCardIndex) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
-      });
-    }
-
-    function shuffleNext() {
-      if (isShuffling) return;
-      isShuffling = true;
-
-      // Cycle forward: [0, 1, 2] -> [1, 2, 0]
-      const topCard = cardOrder.shift();
-      cardOrder.push(topCard);
-      updateDeckPositions();
-
-      setTimeout(() => {
-        isShuffling = false;
-      }, 400);
-    }
-
-    function shufflePrev() {
-      if (isShuffling) return;
-      isShuffling = true;
-
-      // Cycle backward: [0, 1, 2] -> [2, 0, 1]
-      const lastCard = cardOrder.pop();
-      cardOrder.unshift(lastCard);
-      updateDeckPositions();
-
-      setTimeout(() => {
-        isShuffling = false;
-      }, 400);
-    }
-
-    function bringToTop(targetCardIndex) {
-      if (isShuffling) return;
-      isShuffling = true;
-
-      // Move targetCardIndex to index 0 in cardOrder
-      while (cardOrder[0] !== targetCardIndex) {
-        const top = cardOrder.shift();
-        cardOrder.push(top);
-      }
-      updateDeckPositions();
-
-      setTimeout(() => {
-        isShuffling = false;
-      }, 400);
-    }
-
-    // Card click events
-    photoCards.forEach((card) => {
-      card.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const cardIndex = parseInt(card.getAttribute('data-index'), 10);
-        if (cardOrder[0] === cardIndex) {
-          shuffleNext();
-        } else {
-          bringToTop(cardIndex);
-        }
-      });
-    });
-
-    if (photoDeck) {
-      photoDeck.addEventListener('click', () => {
-        shuffleNext();
-      });
-    }
-
-    if (deckNextBtn) {
-      deckNextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        shuffleNext();
-      });
-    }
-
-    if (deckPrevBtn) {
-      deckPrevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        shufflePrev();
-      });
-    }
-
-    if (deckShuffleBtn) {
-      deckShuffleBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        shuffleNext();
-      });
-    }
-
-    deckDots.forEach((dot) => {
-      dot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const dotIndex = parseInt(dot.getAttribute('data-dot'), 10);
-        bringToTop(dotIndex);
-      });
-    });
-
-    // 5. Live Real-Time Event Countdown Timer (September 27, 2026, 19:00:00 IST)
-    const targetEventDate = new Date('2026-09-27T19:00:00+05:30').getTime();
+    // 5. Live Real-Time Event Countdown Timer (September 27, 2026, 20:00:00 IST)
+    const targetEventDate = new Date('2026-09-27T20:00:00+05:30').getTime();
     const countDaysElem = document.getElementById('countDays');
     const countHoursElem = document.getElementById('countHours');
     const countMinsElem = document.getElementById('countMins');
@@ -9360,10 +9428,14 @@
           videoPlayerNative.style.display = 'none';
         }
         if (videoPlayerIframe) {
-          videoPlayerIframe.src = videoSrc;
+          let embedSrc = videoSrc;
+          if (embedSrc.includes('drive.google.com') && !embedSrc.includes('/preview')) {
+            embedSrc = embedSrc.replace(/\/view(\?.*)?$/, '/preview');
+          }
+          videoPlayerIframe.src = embedSrc;
           videoPlayerIframe.style.display = 'block';
           videoPlayerIframe.onload = hideVideoLoader;
-          setTimeout(hideVideoLoader, 1000);
+          setTimeout(hideVideoLoader, 600);
         }
       }
 
@@ -9485,7 +9557,7 @@
       }
     });
 
-    // 8. Full-Screen Image Lightbox Modal Controller
+    // 8. Full-Screen Image Lightbox Modal Controller (Ultra-Fast Pre-Cached Instant Switch)
     const imageLightboxModal = document.getElementById('imageLightboxModal');
     const imageModalBackdrop = document.getElementById('imageModalBackdrop');
     const imageModalCloseBtn = document.getElementById('imageModalCloseBtn');
@@ -9498,10 +9570,19 @@
 
     let currentPhotoIdx = 0;
     const photoList = [];
+    const preloadedImageCache = [];
 
     photoBentoItems.forEach((item, idx) => {
       const src = item.getAttribute('data-img-src');
       photoList.push(src);
+
+      // Instant preloading in browser RAM & GPU cache
+      const preImg = new Image();
+      preImg.src = src;
+      if (preImg.decode) {
+        preImg.decode().catch(() => {});
+      }
+      preloadedImageCache.push(preImg);
 
       item.addEventListener('click', () => {
         openImage(idx);
@@ -9519,37 +9600,82 @@
       imageTotalCountElem.textContent = photoList.length;
     }
 
-    function openImage(index) {
-      if (index < 0 || index >= photoList.length) return;
-      currentPhotoIdx = index;
+    let isSingleImageMode = false;
+
+    function openSingleImage(src) {
+      if (!src) return;
+      isSingleImageMode = true;
       if (imagePlayerImg) {
-        imagePlayerImg.src = photoList[currentPhotoIdx];
-      }
-      if (imageCurrentIndexElem) {
-        imageCurrentIndexElem.textContent = currentPhotoIdx + 1;
+        imagePlayerImg.onerror = function () {
+          const match = src.match(/\/d\/([a-zA-Z0-9_-]+)/);
+          if (match && match[1]) {
+            imagePlayerImg.src = 'https://lh3.googleusercontent.com/d/' + match[1] + '=s0';
+          }
+        };
+        const hdSrc = (src.includes('lh3.googleusercontent.com') && !src.includes('=s0'))
+          ? src.replace(/=[ws]\d+/g, '=s0')
+          : src;
+        imagePlayerImg.src = hdSrc;
       }
       if (imageLightboxModal) {
+        imageLightboxModal.classList.add('hide-nav');
         imageLightboxModal.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
     }
 
+    function openImage(index) {
+      if (index < 0 || index >= photoList.length) return;
+      isSingleImageMode = false;
+      currentPhotoIdx = index;
+
+      const targetSrc = photoList[currentPhotoIdx];
+      if (imagePlayerImg) {
+        imagePlayerImg.onerror = function () {
+          const match = targetSrc.match(/\/d\/([a-zA-Z0-9_-]+)/);
+          if (match && match[1]) {
+            imagePlayerImg.src = 'https://drive.google.com/thumbnail?id=' + match[1] + '&sz=w1400';
+          }
+        };
+        imagePlayerImg.src = targetSrc;
+      }
+
+      if (imageCurrentIndexElem) {
+        imageCurrentIndexElem.textContent = currentPhotoIdx + 1;
+      }
+      if (imageLightboxModal) {
+        imageLightboxModal.classList.remove('hide-nav');
+        imageLightboxModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Proactively pre-warm next and previous images in advance
+      const nextIdx = (currentPhotoIdx + 1) % photoList.length;
+      const prevIdx = (currentPhotoIdx - 1 + photoList.length) % photoList.length;
+      new Image().src = photoList[nextIdx];
+      new Image().src = photoList[prevIdx];
+    }
+
     function closeImage() {
       if (imageLightboxModal) {
         imageLightboxModal.classList.remove('active');
+        imageLightboxModal.classList.remove('hide-nav');
       }
       if (imagePlayerImg) {
         imagePlayerImg.src = '';
       }
       document.body.style.overflow = '';
+      isSingleImageMode = false;
     }
 
     function showPrevImage() {
+      if (isSingleImageMode) return;
       currentPhotoIdx = (currentPhotoIdx - 1 + photoList.length) % photoList.length;
       openImage(currentPhotoIdx);
     }
 
     function showNextImage() {
+      if (isSingleImageMode) return;
       currentPhotoIdx = (currentPhotoIdx + 1) % photoList.length;
       openImage(currentPhotoIdx);
     }
@@ -9577,15 +9703,51 @@
       if (imageLightboxModal && imageLightboxModal.classList.contains('active')) {
         if (e.key === 'Escape') {
           closeImage();
-        } else if (e.key === 'ArrowLeft') {
+        } else if (!isSingleImageMode && e.key === 'ArrowLeft') {
           showPrevImage();
-        } else if (e.key === 'ArrowRight') {
+        } else if (!isSingleImageMode && e.key === 'ArrowRight') {
           showNextImage();
         }
       }
     });
 
-    // 9. Interactive Booking Form & Newsletter Controller
+    // Touch Swipe Navigation for Mobile
+    let imageTouchStartX = 0;
+    if (imageLightboxModal) {
+      imageLightboxModal.addEventListener('touchstart', (e) => {
+        imageTouchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      imageLightboxModal.addEventListener('touchend', (e) => {
+        if (isSingleImageMode) return;
+        const imageTouchEndX = e.changedTouches[0].screenX;
+        const diffX = imageTouchEndX - imageTouchStartX;
+        if (diffX > 45) {
+          showPrevImage();
+        } else if (diffX < -45) {
+          showNextImage();
+        }
+      }, { passive: true });
+    }
+
+    // Event Poster Single Image Fullscreen Viewer
+    const eventPosterWrapper = document.getElementById('eventPosterWrapper');
+    const EVENT_POSTER_HD_SRC = 'https://lh3.googleusercontent.com/d/1JMEaVpFXqSxXuYMakm6i8ayvcTCUHabg=s0';
+    new Image().src = EVENT_POSTER_HD_SRC;
+
+    if (eventPosterWrapper) {
+      eventPosterWrapper.addEventListener('click', () => {
+        openSingleImage(EVENT_POSTER_HD_SRC);
+      });
+      eventPosterWrapper.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openSingleImage(EVENT_POSTER_HD_SRC);
+        }
+      });
+    }
+
+    // 9. Interactive Booking Form & WhatsApp Direct Connect
     const bookingForm = document.getElementById('bookingForm');
     const formSuccessAlert = document.getElementById('formSuccessAlert');
     const bookingSubmitBtn = document.getElementById('bookingSubmitBtn');
@@ -9596,6 +9758,7 @@
         const fullName = document.getElementById('formFullName')?.value.trim();
         const phone = document.getElementById('formPhone')?.value.trim();
         const eventType = document.getElementById('formEventType')?.value;
+        const cityNote = document.getElementById('formMessage')?.value.trim();
 
         if (!fullName || !phone || !eventType) {
           alert('Please fill out all required fields marked with *');
@@ -9603,12 +9766,29 @@
         }
 
         if (bookingSubmitBtn) {
-          bookingSubmitBtn.innerHTML = '<span>Sending Invitation...</span>';
+          bookingSubmitBtn.innerHTML = '<span>Opening WhatsApp...</span>';
           bookingSubmitBtn.style.opacity = '0.7';
           bookingSubmitBtn.disabled = true;
         }
 
+        // Format message for WhatsApp
+        let waText = `*Namaste! New Invitation for Nitin Lathe* 🌸\n\n` +
+          `*Full Name:* ${fullName}\n` +
+          `*Phone / WhatsApp:* ${phone}\n` +
+          `*Programme Type:* ${eventType}`;
+        
+        if (cityNote) {
+          waText += `\n*City / Organization / Note:* ${cityNote}`;
+        }
+        
+        waText += `\n\n_Sent via Nitin Lathe Website Invitation Form_`;
+
+        const waUrl = `https://wa.me/919324350543?text=${encodeURIComponent(waText)}`;
+
         setTimeout(() => {
+          // Open WhatsApp with pre-filled enquiry details
+          window.open(waUrl, '_blank');
+
           if (formSuccessAlert) {
             formSuccessAlert.style.display = 'block';
           }
@@ -9629,8 +9809,8 @@
               `;
               bookingSubmitBtn.disabled = false;
             }
-          }, 5000);
-        }, 800);
+          }, 4000);
+        }, 500);
       });
     }
   </script>
